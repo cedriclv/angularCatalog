@@ -1,0 +1,72 @@
+<div class="container-fluid text-center p-4">
+  <div class="row p-4">
+    <div class="col col-lg-6">
+      <h1 class="bg-dark text-light rounded">Liste produits</h1>
+      <h2 class="bg-secondary text-dark rounded">produit avec des prix à définir</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Discounted Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of getProductsWOprice()">
+            <th scope="row">1</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ (1 - product.discount) * product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col col-lg-6">
+      <h2 class="bg-secondary text-dark rounded">produits en promotion</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Discounted Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of getProductsWithDiscount()">
+            <th scope="row">1</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ (1 - product.discount) * product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col col-lg-6">
+      <h2 class="bg-secondary text-dark rounded">reste des produits</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Discounted Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of getProductsWithPriceWODiscount()">
+            <th scope="row">1</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ (1 - product.discount) * product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
